@@ -16,6 +16,8 @@ class BaseTest(TestCase):
     def setUpClass(cls):
         # Make sure database exists
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'
+        app.config['DEBUG'] = False
+        app.config['PROPAGATE_EXCEPTIONS'] = True
         with app.app_context():
             db.init_app(app)
 
